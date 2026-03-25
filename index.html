@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VoetbalshirtsNL – Officiële Nederlandse Shirts</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --oranje: #FF6B00;
+    --oranje-licht: #FF8C33;
+    --oranje-zacht: #FFF0E5;
+    --wit: #FFFFFF;
+    --lichtgrijs: #F7F7F5;
+    --tekst: #1A1A1A;
+    --tekst-zacht: #666;
+    --border: #EEE;
+    --groen: #2ECC71;
+  }
+
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Nunito', sans-serif; background: var(--wit); color: var(--tekst); overflow-x: hidden; }
+
+  /* ── NAV ── */
+  nav {
+    background: var(--wit);
+    border-bottom: 2px solid var(--oranje-zacht);
+    padding: 0 5%;
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky; top: 0; z-index: 999;
+  }
+  .logo { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 1px; color: var(--tekst); }
+  .logo span { color: var(--oranje); }
+  .nav-contact a {
+    background: var(--oranje);
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 22px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 700;
+    display: flex; align-items: center; gap: 8px;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .nav-contact a:hover { background: #e55d00; transform: scale(1.03); }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, #FFF7F0 0%, #FFE8D0 50%, #FFDAB9 100%);
+    padding: 60px 5% 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 40px;
+    min-height: 480px;
+  }
+  .hero-text {}
+  .hero-tag {
+    background: var(--oranje);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 5px 16px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 18px;
+  }
+  .hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(42px, 6vw, 72px);
+    line-height: 1;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+  }
+  .hero h1 span { color: var(--oranje); }
+  .hero p { font-size: 16px; color: var(--tekst-zacht); line-height: 1.7; margin-bottom: 28px; max-width: 420px; }
+  .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn-wa {
+    background: #25D366;
+    color: #fff;
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 800;
+    display: flex; align-items: center; gap: 8px;
+    transition: background 0.2s, transform 0.15s;
+    box-shadow: 0 4px 16px rgba(37,211,102,0.3);
+  }
+  .btn-wa:hover { background: #1db954; transform: translateY(-2px); }
+  .btn-bel {
+    background: var(--wit);
+    color: var(--oranje);
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 700;
+    border: 2px solid var(--oranje);
+    display: flex; align-items: center; gap: 8px;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-bel:hover { background: var(--oranje-zacht); transform: translateY(-2px); }
+
+  .hero-imgs {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+  }
+  .hero-img-wrap {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+    flex: 1;
+    max-width: 220px;
+    transition: transform 0.3s;
+  }
+  .hero-img-wrap:hover { transform: translateY(-6px) rotate(1deg); }
+  .hero-img-wrap:nth-child(2) { transform: translateY(20px); }
+  .hero-img-wrap:nth-child(2):hover { transform: translateY(14px) rotate(-1deg); }
+  .hero-img-wrap img { width: 100%; display: block; }
+
+  /* ── USP BAR ── */
+  .usp-bar {
+    background: var(--oranje);
+    padding: 14px 5%;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .usp-item { color: #fff; font-size: 13px; font-weight: 700; display: flex; align-items: center; gap: 7px; }
+  .usp-item span { font-size: 18px; }
+
+  /* ── SHIRTS SECTIE ── */
+  .shirts-sectie { padding: 60px 5%; background: var(--lichtgrijs); }
+  .sectie-titel {
+    text-align: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 38px;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+  .sectie-subtitle { text-align: center; color: var(--tekst-zacht); font-size: 15px; margin-bottom: 40px; }
+
+  .shirts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; max-width: 900px; margin: 0 auto; }
+
+  .shirt-card {
+    background: var(--wit);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .shirt-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.13); }
+
+  .shirt-img-wrap { position: relative; background: #F8F4F0; padding: 24px; }
+  .shirt-img-wrap img { width: 100%; display: block; border-radius: 12px; }
+  .shirt-label {
+    position: absolute;
+    top: 16px; left: 16px;
+    background: var(--oranje);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 20px;
+  }
+
+  .shirt-info { padding: 20px 24px 24px; }
+  .shirt-land { font-size: 12px; color: var(--tekst-zacht); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 4px; }
+  .shirt-naam { font-size: 18px; font-weight: 800; margin-bottom: 10px; }
+  .shirt-maten { display: flex; gap: 6px; margin-bottom: 16px; flex-wrap: wrap; }
+  .maat {
+    border: 1.5px solid #e0e0d8;
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--tekst-zacht);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .maat:hover, .maat.geselecteerd { border-color: var(--oranje); color: var(--oranje); background: var(--oranje-zacht); }
+
+  .shirt-bottom { display: flex; align-items: center; justify-content: space-between; }
+  .shirt-prijs { font-size: 22px; font-weight: 800; color: var(--oranje); }
+  .shirt-prijs small { font-size: 12px; color: var(--tekst-zacht); font-weight: 400; display: block; }
+
+  .bestel-btn {
+    background: var(--oranje);
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 22px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 800;
+    display: flex; align-items: center; gap: 7px;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .bestel-btn:hover { background: #e55d00; transform: scale(1.04); }
+
+  /* ── CONTACT SECTIE ── */
+  .contact-sectie {
+    background: linear-gradient(135deg, #FFF7F0, #FFE8D0);
+    padding: 60px 5%;
+    text-align: center;
+  }
+  .contact-sectie h2 { font-family: 'Bebas Neue', sans-serif; font-size: 36px; letter-spacing: 1px; margin-bottom: 10px; }
+  .contact-sectie p { color: var(--tekst-zacht); font-size: 15px; margin-bottom: 36px; }
+
+  .contact-knoppen { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .contact-wa {
+    background: #25D366;
+    color: #fff;
+    text-decoration: none;
+    padding: 16px 36px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 800;
+    display: flex; align-items: center; gap: 10px;
+    box-shadow: 0 6px 20px rgba(37,211,102,0.35);
+    transition: background 0.2s, transform 0.15s;
+  }
+  .contact-wa:hover { background: #1db954; transform: translateY(-3px); }
+  .contact-bel {
+    background: var(--wit);
+    color: var(--oranje);
+    text-decoration: none;
+    padding: 16px 36px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 800;
+    border: 2.5px solid var(--oranje);
+    display: flex; align-items: center; gap: 10px;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .contact-bel:hover { background: var(--oranje-zacht); transform: translateY(-3px); }
+
+  /* ── VOORDELEN ── */
+  .voordelen { padding: 60px 5%; background: var(--wit); }
+  .voordelen h2 { font-family: 'Bebas Neue', sans-serif; font-size: 36px; text-align: center; letter-spacing: 1px; margin-bottom: 40px; }
+  .voordelen-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; max-width: 900px; margin: 0 auto; }
+  .voordeel-card {
+    background: var(--lichtgrijs);
+    border-radius: 16px;
+    padding: 28px 20px;
+    text-align: center;
+    transition: transform 0.2s;
+  }
+  .voordeel-card:hover { transform: translateY(-4px); }
+  .voordeel-icon { font-size: 36px; margin-bottom: 12px; }
+  .voordeel-card h3 { font-size: 15px; font-weight: 800; margin-bottom: 6px; }
+  .voordeel-card p { font-size: 13px; color: var(--tekst-zacht); line-height: 1.6; }
+
+  /* ── FLOATING WA KNOP ── */
+  .floating-wa {
+    position: fixed;
+    bottom: 28px; right: 28px;
+    background: #25D366;
+    color: #fff;
+    text-decoration: none;
+    width: 58px; height: 58px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 26px;
+    box-shadow: 0 6px 24px rgba(37,211,102,0.45);
+    z-index: 999;
+    transition: transform 0.2s;
+    animation: pulse 2.5s infinite;
+  }
+  .floating-wa:hover { transform: scale(1.12); }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 6px 24px rgba(37,211,102,0.45); }
+    50% { box-shadow: 0 6px 36px rgba(37,211,102,0.7); }
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #1A1A1A;
+    color: #aaa;
+    text-align: center;
+    padding: 28px;
+    font-size: 13px;
+  }
+  footer span { color: var(--oranje); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 700px) {
+    .hero { grid-template-columns: 1fr; text-align: center; }
+    .hero p { margin: 0 auto 28px; }
+    .hero-btns { justify-content: center; }
+    .hero-imgs { justify-content: center; }
+    .hero-img-wrap { max-width: 160px; }
+    .hero-img-wrap:nth-child(2) { transform: translateY(0); }
+    .usp-bar { gap: 20px; }
+    nav { padding: 0 4%; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATIE -->
+<nav>
+  <div class="logo">Voetbalshirts<span>NL</span></div>
+  <div class="nav-contact">
+    <a href="https://w.app/gbjlzh" target="_blank">
+      💬 Bestel via WhatsApp
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <div class="hero-tag">🇳🇱 Nederland Collectie</div>
+    <h1>Draag<br><span>Oranje</span><br>met trots</h1>
+    <p>Officiële replica-shirts van het Nederlands elftal. Thuis- en uitshirt nu beschikbaar. Snel geleverd, scherpe prijs.</p>
+    <div class="hero-btns">
+      <a href="https://w.app/gbjlzh" target="_blank" class="btn-wa">
+        💬 Bestel via WhatsApp
+      </a>
+      <a href="tel:0630576584" class="btn-bel">
+        📞 Bel ons
+      </a>
+    </div>
+  </div>
+  <div class="hero-imgs">
+    <div class="hero-img-wrap">
+      <img src="thuisshirt.jpg" alt="Nederland Thuisshirt" onerror="this.style.background='#FFE0CC';this.style.minHeight='220px';this.alt='📸 Thuisshirt'">
+    </div>
+    <div class="hero-img-wrap">
+      <img src="uitshirt.jpg" alt="Nederland Uitshirt" onerror="this.style.background='#F0F0F0';this.style.minHeight='220px';this.alt='📸 Uitshirt'">
+    </div>
+  </div>
+</section>
+
+<!-- USP BAR -->
+<div class="usp-bar">
+  <div class="usp-item"><span>🚚</span> Snelle levering</div>
+  <div class="usp-item"><span>💬</span> Direct bestellen via WhatsApp</div>
+  <div class="usp-item"><span>✅</span> Officiële replica</div>
+  <div class="usp-item"><span>💳</span> Betalen via iDEAL of tikkie</div>
+</div>
+
+<!-- SHIRTS -->
+<section class="shirts-sectie" id="shirts">
+  <div class="sectie-titel">Onze Shirts</div>
+  <div class="sectie-subtitle">Kies jouw favoriet — stuur ons een berichtje voor je bestelling</div>
+
+  <div class="shirts-grid">
+
+    <!-- SHIRT 1: THUIS -->
+    <div class="shirt-card">
+      <div class="shirt-img-wrap">
+        <img src="thuisshirt.jpg" alt="Nederland Thuisshirt Oranje" onerror="this.parentElement.style.minHeight='260px';this.style.display='none'">
+        <div class="shirt-label">Thuisshirt</div>
+      </div>
+      <div class="shirt-info">
+        <div class="shirt-land">🇳🇱 Nederland</div>
+        <div class="shirt-naam">Thuisshirt 2024/25</div>
+        <div class="shirt-maten">
+          <span class="maat">S</span>
+          <span class="maat">M</span>
+          <span class="maat">L</span>
+          <span class="maat">XL</span>
+          <span class="maat">XXL</span>
+        </div>
+        <div class="shirt-bottom">
+          <div class="shirt-prijs">
+            €24,99
+            <small>excl. verzendkosten</small>
+          </div>
+          <a href="https://w.app/gbjlzh" target="_blank" class="bestel-btn">
+            💬 Bestel
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- SHIRT 2: UIT -->
+    <div class="shirt-card">
+      <div class="shirt-img-wrap">
+        <img src="uitshirt.jpg" alt="Nederland Uitshirt Wit" onerror="this.parentElement.style.minHeight='260px';this.style.display='none'">
+        <div class="shirt-label">Uitshirt</div>
+      </div>
+      <div class="shirt-info">
+        <div class="shirt-land">🇳🇱 Nederland</div>
+        <div class="shirt-naam">Uitshirt 2024/25</div>
+        <div class="shirt-maten">
+          <span class="maat">S</span>
+          <span class="maat">M</span>
+          <span class="maat">L</span>
+          <span class="maat">XL</span>
+          <span class="maat">XXL</span>
+        </div>
+        <div class="shirt-bottom">
+          <div class="shirt-prijs">
+            €24,99
+            <small>excl. verzendkosten</small>
+          </div>
+          <a href="https://w.app/gbjlzh" target="_blank" class="bestel-btn">
+            💬 Bestel
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- VOORDELEN -->
+<section class="voordelen">
+  <h2>Waarom VoetbalshirtsNL?</h2>
+  <div class="voordelen-grid">
+    <div class="voordeel-card">
+      <div class="voordeel-icon">⚡</div>
+      <h3>Snelle levering</h3>
+      <p>Binnen 2–4 werkdagen bij jou thuis</p>
+    </div>
+    <div class="voordeel-card">
+      <div class="voordeel-icon">💬</div>
+      <h3>Persoonlijk contact</h3>
+      <p>Direct overleggen via WhatsApp</p>
+    </div>
+    <div class="voordeel-card">
+      <div class="voordeel-icon">👕</div>
+      <h3>Topkwaliteit</h3>
+      <p>Officiële replica shirts, net als de profs</p>
+    </div>
+    <div class="voordeel-card">
+      <div class="voordeel-icon">💰</div>
+      <h3>Scherpe prijs</h3>
+      <p>Vanaf €24,99 per shirt</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-sectie" id="contact">
+  <h2>Neem Direct Contact Op</h2>
+  <p>Vragen over maat, levering of betaling? Wij reageren snel!</p>
+  <div class="contact-knoppen">
+    <a href="https://w.app/gbjlzh" target="_blank" class="contact-wa">
+      💬 App ons op WhatsApp
+    </a>
+    <a href="tel:0630576584" class="contact-bel">
+      📞 Bel: 06-30576584
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 <span>VoetbalshirtsNL</span> — Alle rechten voorbehouden · Vragen? App of bel ons!</p>
+</footer>
+
+<!-- FLOATING WHATSAPP KNOP -->
+<a href="https://w.app/gbjlzh" target="_blank" class="floating-wa" title="App ons op WhatsApp">
+  💬
+</a>
+
+<script>
+  // Maat selectie
+  document.querySelectorAll('.maat').forEach(m => {
+    m.addEventListener('click', function() {
+      this.closest('.shirt-maten').querySelectorAll('.maat').forEach(x => x.classList.remove('geselecteerd'));
+      this.classList.add('geselecteerd');
+    });
+  });
+</script>
+
+</body>
+</html>
