@@ -148,6 +148,13 @@
       color:var(--oranje);
     }
 
+    .hero-note {
+      font-size:0.9rem;
+      color:#c23d00;
+      margin-top:8px;
+      font-weight:600;
+    }
+
     /* ONZE SHIRTS */
     #shirts {
       max-width:960px;
@@ -160,7 +167,14 @@
       font-size:1.6rem;
       text-transform:uppercase;
       letter-spacing:0.08em;
-      margin-bottom:18px;
+      margin-bottom:6px;
+    }
+
+    .section-subtitle {
+      font-size:0.9rem;
+      color:#c23d00;
+      margin-bottom:16px;
+      font-weight:600;
     }
 
     .shirts-grid {
@@ -178,12 +192,12 @@
     }
     .shirt-card img {
       width:100%;
-      height:240px;       /* vaste hoogte zodat beide gelijk zijn */
-      object-fit:contain; /* hele foto zichtbaar, niet afgesneden */
+      height:240px;
+      object-fit:contain;
       border-radius:10px;
       margin-bottom:10px;
       display:block;
-      background:#ffffff; /* witte randen indien nodig */
+      background:#ffffff;
     }
     .shirt-title {
       font-family:'Barlow Condensed',sans-serif;
@@ -200,6 +214,12 @@
     .shirt-price {
       font-weight:700;
       margin-bottom:10px;
+    }
+    .shirt-status {
+      font-size:0.85rem;
+      color:#c23d00;
+      margin-bottom:8px;
+      font-weight:600;
     }
     .shirt-card .btn-primary {
       font-size:0.82rem;
@@ -257,7 +277,7 @@
     <a class="logo" href="index.html">VOETBALSHIRTS<span>NL</span></a>
     <ul class="nav-links">
       <li><a href="#shirts">Shirts</a></li>
-      <li><a href="bestellen.html">Bestellen</a></li>
+      <li><a href="bestellen.html">Pre-order</a></li>
       <li><a href="gripsokken.html">Gripsokken</a></li>
       <li><a href="over-ons.html">Over ons</a></li>
     </ul>
@@ -276,8 +296,12 @@
         gewoon trots in het oranje rond te lopen.
       </p>
 
+      <p class="hero-note">
+        Let op: de eerste voorraad is uitverkocht. Je kunt nu een pre‑order plaatsen voor de volgende levering.
+      </p>
+
       <div class="hero-actions">
-        <a href="bestellen.html" class="btn-primary">Bestel nu je shirt</a>
+        <a href="bestellen.html" class="btn-primary">Plaats een pre‑order</a>
       </div>
 
       <p class="hero-text" style="margin-top:16px;">
@@ -293,13 +317,16 @@
     <!-- ONZE SHIRTS -->
     <section id="shirts">
       <h2 class="section-title">Onze shirts</h2>
+      <p class="section-subtitle">De huidige voorraad is uitverkocht – je kunt hieronder een pre‑order plaatsen.</p>
+
       <div class="shirts-grid">
         <article class="shirt-card">
           <img src="oranje-shirt.jpg" alt="Oranje thuisshirt 2026">
           <h3 class="shirt-title">Oranje thuisshirt 2026</h3>
           <p class="shirt-meta">Thuis | Oranje | Maat S t/m XL</p>
           <p class="shirt-price">€24,99 per shirt</p>
-          <a href="bestellen.html" class="btn-primary">Bestel thuisshirt</a>
+          <p class="shirt-status">Uitverkocht – nu te pre‑order</p>
+          <a href="bestellen.html" class="btn-primary">Pre‑order thuisshirt</a>
         </article>
 
         <article class="shirt-card">
@@ -307,7 +334,8 @@
           <h3 class="shirt-title">Wit uitshirt 2026</h3>
           <p class="shirt-meta">Uit | Wit | Maat S t/m XL</p>
           <p class="shirt-price">€24,99 per shirt</p>
-          <a href="bestellen.html" class="btn-primary">Bestel uitshirt</a>
+          <p class="shirt-status">Uitverkocht – nu te pre‑order</p>
+          <a href="bestellen.html" class="btn-primary">Pre‑order uitshirt</a>
         </article>
       </div>
     </section>
@@ -318,8 +346,8 @@
       <p class="over-subtitle">VoetbalshirtsNL is een kleine Nederlandse webshop voor fanatieke Oranje-supporters.</p>
       <p class="over-text">
         We selecteren alleen fan-versies die goed zitten, netjes afgewerkt zijn en betaalbaar blijven.
-        Bestellen gaat bewust simpel: je kiest je maat, wij nemen persoonlijk contact op en verzenden je shirt
-        zorgvuldig verpakt. Zo houden we de prijs laag en de service persoonlijk.
+        Bestellen doen we via pre‑orders: je geeft je maat door, wij bevestigen je pre‑order persoonlijk en sturen
+        je shirt direct na binnenkomst van de nieuwe levering op. Zo houden we de prijs laag en de service persoonlijk.
       </p>
     </section>
   </main>
