@@ -253,11 +253,15 @@
 
           <form id="bestel-form" method="POST" action="https://formspree.io/f/xbdpjozq">
             <input type="hidden" name="_subject" value="Nieuwe pre-order shirt via website">
-            <input type="hidden" name="_replyto" value="stan-zakelijk@hotmail.com">
 
             <div class="form-row">
               <label for="naam" class="form-label">Naam</label>
               <input id="naam" name="naam" type="text" required class="form-input" placeholder="Voor- en achternaam">
+            </div>
+
+            <div class="form-row">
+              <label for="email" class="form-label">E-mailadres</label>
+              <input id="email" name="email" type="email" required class="form-input" placeholder="jij@example.nl">
             </div>
 
             <div class="form-row">
@@ -284,6 +288,7 @@
             </div>
 
             <p class="form-help">
+              Let op: een geldig e-mailadres is verplicht, zodat we je pre-order kunnen bevestigen en verzendinformatie kunnen sturen.
               Je pre-order wordt per mail naar ons verstuurd. Wil je ons ook direct via WhatsApp berichten,
               gebruik dan de link hieronder.
             </p>
@@ -310,6 +315,7 @@
     const shirtSelect = document.getElementById('shirt');
     const formBlock = document.getElementById('bestel-form-blok');
 
+    // Klik op kaart -> juiste shirt selecteren + naar formulier scrollen
     document.querySelectorAll('.shirt-card').forEach(card => {
       card.addEventListener('click', () => {
         const value = card.getAttribute('data-shirt');
@@ -322,6 +328,7 @@
 
     function buildWhatsAppUrl() {
       const naam = document.getElementById('naam').value.trim();
+      const email = document.getElementById('email').value.trim();
       const adres = document.getElementById('adres').value.trim();
       const postcode = document.getElementById('postcode').value.trim();
       const maat = document.getElementById('maat').value.trim();
@@ -332,6 +339,7 @@
       const text =
         'Pre-order fan-versie shirt:%0A%0A' +
         'Naam: ' + encodeURIComponent(naam) + '%0A' +
+        'E-mailadres: ' + encodeURIComponent(email) + '%0A' +
         'Adres: ' + encodeURIComponent(adres) + '%0A' +
         'Postcode + woonplaats: ' + encodeURIComponent(postcode) + '%0A' +
         'Maat: ' + encodeURIComponent(maat) + '%0A' +
