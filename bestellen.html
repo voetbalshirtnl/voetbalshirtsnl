@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Bestellen – Fan-versie shirt 2026</title>
+  <title>Pre-order – Fan-versie shirt 2026</title>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet"/>
   <style>
     :root {
@@ -111,12 +111,12 @@
     }
     .shirt-card img {
       width:100%;
-      height:240px;       /* vaste boxhoogte, beide gelijk */
-      object-fit:contain; /* volledige foto zichtbaar */
+      height:240px;
+      object-fit:contain;
       border-radius:10px;
       margin-bottom:8px;
       display:block;
-      background:#ffffff; /* witte randen indien nodig */
+      background:#ffffff;
     }
     .shirt-title {
       font-family:'Barlow Condensed',sans-serif;
@@ -135,7 +135,7 @@
       font-size:0.9rem;
     }
 
-    /* BESTELFORMULIER */
+    /* FORMULIER */
     .form-wrapper {
       max-width:640px;
       margin:0 auto;
@@ -215,7 +215,7 @@
     <a class="logo" href="index.html">VOETBALSHIRTS<span>NL</span></a>
     <ul class="nav-links">
       <li><a href="index.html#shirts">Shirts</a></li>
-      <li><a href="bestellen.html">Bestellen</a></li>
+      <li><a href="bestellen.html">Pre-order</a></li>
       <li><a href="gripsokken.html">Gripsokken</a></li>
       <li><a href="over-ons.html">Over ons</a></li>
     </ul>
@@ -223,10 +223,10 @@
 
   <main>
     <div class="bestel-container">
-      <div class="badge">Bestellen</div>
-      <h1>Bestel jouw <span>fan-versie shirt 2026</span></h1>
+      <div class="badge">Pre-order</div>
+      <h1>Pre-order jouw <span>fan-versie shirt 2026</span></h1>
       <p class="intro">
-        Kies hieronder je shirt. Klik op het shirt dat je wilt bestellen; het bestelformulier wordt automatisch ingevuld.
+        Kies hieronder je shirt. Klik op het shirt dat je wilt pre-orderen; het formulier wordt automatisch ingevuld.
       </p>
 
       <!-- SHIRT-KAARTEN -->
@@ -246,13 +246,13 @@
         </article>
       </section>
 
-      <!-- BESTELFORMULIER -->
+      <!-- PRE-ORDER FORMULIER -->
       <div class="form-wrapper" id="bestel-form-blok">
         <div class="bestel-card">
-          <div class="bestel-card-title">Bestelformulier</div>
+          <div class="bestel-card-title">Pre-order formulier</div>
 
           <form id="bestel-form" method="POST" action="https://formspree.io/f/xbdpjozq">
-            <input type="hidden" name="_subject" value="Nieuwe shirtbestelling via website">
+            <input type="hidden" name="_subject" value="Nieuwe pre-order shirt via website">
             <input type="hidden" name="_replyto" value="stan-zakelijk@hotmail.com">
 
             <div class="form-row">
@@ -284,16 +284,16 @@
             </div>
 
             <p class="form-help">
-              Je bestelling wordt per mail naar ons verstuurd. Wil je ons ook direct via WhatsApp berichten,
+              Je pre-order wordt per mail naar ons verstuurd. Wil je ons ook direct via WhatsApp berichten,
               gebruik dan de link hieronder.
             </p>
 
             <button type="submit">
-              Verstuur bestelling
+              Verstuur pre-order
             </button>
 
             <a id="whatsapp-link" class="whatsapp-link" href="#" target="_blank" rel="noopener">
-              Of open WhatsApp met je bestelling
+              Of open WhatsApp met je pre-order
             </a>
 
             <p id="form-status" class="form-status"></p>
@@ -310,7 +310,6 @@
     const shirtSelect = document.getElementById('shirt');
     const formBlock = document.getElementById('bestel-form-blok');
 
-    // Klik op kaart -> juiste shirt selecteren + naar formulier scrollen
     document.querySelectorAll('.shirt-card').forEach(card => {
       card.addEventListener('click', () => {
         const value = card.getAttribute('data-shirt');
@@ -331,7 +330,7 @@
       const phone = '31630576584';
 
       const text =
-        'Bestelling fan-versie shirt:%0A%0A' +
+        'Pre-order fan-versie shirt:%0A%0A' +
         'Naam: ' + encodeURIComponent(naam) + '%0A' +
         'Adres: ' + encodeURIComponent(adres) + '%0A' +
         'Postcode + woonplaats: ' + encodeURIComponent(postcode) + '%0A' +
@@ -348,7 +347,7 @@
     });
 
     bestelForm.addEventListener('submit', function() {
-      bestelStatus.textContent = 'Bestelling wordt verstuurd...';
+      bestelStatus.textContent = 'Pre-order wordt verstuurd...';
     });
   </script>
 
